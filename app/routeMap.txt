@@ -1,0 +1,6 @@
+routes outline:
+	/		GET	index
+	/lorem-ipsum	GET	lorem-ipsum page
+	/lorem-ipsum	POST	display lorem-ipsum page
+	/random-user	GET	random user page
+	/random-user	POST	display random user info

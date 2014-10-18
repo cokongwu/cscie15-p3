@@ -1,6 +1,6 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
+	"name": "udamhutr/cscie15-p3",
+	"description": "CSCIE15 Problem Set 3",
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {

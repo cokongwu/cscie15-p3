@@ -13,5 +13,27 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+//	return View::make('hello');
+	return View::make("index");
 });
+
+Route::get('/lorem-ipsum', function()
+{
+	return "Lorem ipsum here";
+});
+
+Route::post('/lorem-ipsum', function()
+{
+	return "Lorem ipsum text";
+});
+
+Route::get('/random-user', function()
+{
+	return "Random user page";
+});
+
+Route::post('/random-user', function()
+{
+	return "Random user info";
+});
+
