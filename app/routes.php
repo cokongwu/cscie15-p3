@@ -11,28 +11,47 @@
 |
 */
 
-Route::get('/', function()
+Route::get("/", function()
 {
 //	return View::make('hello');
 	return View::make("index");
 });
 
-Route::get('/lorem-ipsum', function()
+Route::get("/xkcd-generator", function()
 {
-	return "Lorem ipsum here";
+	$result = " ";
+	return View::make("xkcd-generator")
+		->with("result", $result);
 });
 
-Route::post('/lorem-ipsum', function()
+Route::post("/xkcd-generator", function()
 {
-	return "Lorem ipsum text";
+	$library = new Library();
+	$result = $library->xkcdGen();
+	return View::make("xkcd-generator")->with("result", $result);
 });
 
-Route::get('/random-user', function()
+Route::get("/lorem-ipsum/{amount?}", function($amount = "2")
 {
-	return "Random user page";
+	$library = new Library();
+	$amount = $library->lorIpsClean($amount);
+	return View::make("lorem-ipsum")->with("amount", $amount);
 });
 
-Route::post('/random-user', function()
+Route::post("/lorem-ipsum", function()
+{
+	$amount = $_POST["paragraphs"];
+	$library = new Library();
+	$amount = $library->lorIpsClean($amount);
+	return View::make("lorem-ipsum")->with("amount", $amount);
+});
+
+Route::get("/random-user", function()
+{
+	return View::make("random-user");
+});
+
+Route::post("/random-user", function()
 {
 	return "Random user info";
 });

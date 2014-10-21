@@ -5,9 +5,12 @@
 	<title>
 		@yield("title")
 	</title>
-	<link src=stylesheet href="">
+	<link rel="stylesheet" href="{{ asset("mycss.css") }}">
 </head>
 <body>
+<div id="main">
+	@yield("heading")
 	@yield("content")
+</div>
 </body>
 </html>

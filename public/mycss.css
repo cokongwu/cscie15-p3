@@ -1,7 +1,12 @@
-body{
-	background-color: blue;
-}
-.main{
+#main{
 	width: 80%;
+	background-color: white;
 	text-align: center;
+	margin: auto;
 }
+
+.return{
+	text-align: left;
+}
+
+
