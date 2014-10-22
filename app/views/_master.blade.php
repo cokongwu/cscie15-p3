@@ -11,6 +11,7 @@
 <div id="main">
 	@yield("heading")
 	@yield("content")
+	@yield("result")
 </div>
 </body>
 </html>

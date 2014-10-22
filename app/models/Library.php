@@ -2,14 +2,42 @@
 
 class Library{
 	// Properties
-	// string to hold output
-	private $result;
 
 	//Methods
 	/**
+	 * Random User Logic
+	 */
+	private function getUserName(){
+		$faker = Faker\Factory::create();
+		return $faker->name;	
+	}
+	private function getUserDate(){
+		$faker = Faker\Factory::create();
+		return $faker->dateTimeBetween($startDate = "-8 years", $endDate = "now")
+			->format("Y-m-d");
+	}
+	private function getUserInfo(){
+		$faker = Faker\Factory::create();
+		return $faker->paragraph($nbSentences = 3);
+	}
+	public function userGen($post){
+		$result = "";
+		$numUsers = $this->numberClean($post["numUsers"]);
+		for($i=0; $i < $numUsers; $i++){
+			$result .= "name: ".$this->getUserName()."\n<br>";
+			if(isset($post["date"])){
+				$result .= "enroll date: ".$this->getUserDate()."\n<br>";
+			}
+			if(isset($post["about"])){
+				$result .= "about: ".$this->getUserInfo()."\n<br>";
+			}
+		}
+		return $result;
+	}
+	/**
 	 * Lorem Ipsum Logic
 	 */
-	public function lorIpsClean($amount){
+	public function numberClean($amount){
 		if(!is_numeric($amount)){
 			$amount = 2;
 		}

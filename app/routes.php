@@ -13,7 +13,6 @@
 
 Route::get("/", function()
 {
-//	return View::make('hello');
 	return View::make("index");
 });
 
@@ -53,6 +52,12 @@ Route::get("/random-user", function()
 
 Route::post("/random-user", function()
 {
-	return "Random user info";
+	$library = new Library();
+	$post = $_POST;
+	
+	$result = $library->userGen($post 
+			/* $_POST["numUsers"], $_POST["date"],  $_POST["about"] */ 
+				);
+	return View::make("random-user")->with("result", $result);
 });
 
