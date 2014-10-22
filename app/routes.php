@@ -33,7 +33,7 @@ Route::post("/xkcd-generator", function()
 Route::get("/lorem-ipsum/{amount?}", function($amount = "2")
 {
 	$library = new Library();
-	$amount = $library->lorIpsClean($amount);
+	$amount = $library->numberClean($amount);
 	return View::make("lorem-ipsum")->with("amount", $amount);
 });
 
@@ -41,7 +41,7 @@ Route::post("/lorem-ipsum", function()
 {
 	$amount = $_POST["paragraphs"];
 	$library = new Library();
-	$amount = $library->lorIpsClean($amount);
+	$amount = $library->numberClean($amount);
 	return View::make("lorem-ipsum")->with("amount", $amount);
 });
 
